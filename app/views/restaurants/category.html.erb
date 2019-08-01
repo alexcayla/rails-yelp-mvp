@@ -1,0 +1,12 @@
+<div class="col-lg-6 mx-auto">
+  <h1 class="text-center"> <%= @restaurants.first.category.capitalize %> Restaurants</h1>
+  <p><%= link_to "Back to all restaurants", restaurants_path %></p>
+  <!-- Cards -->
+  <% @restaurants.each do |restaurant| %>
+    <div class="card my-4 p-3 mx-auto">
+      <h3><%= link_to restaurant.name, restaurant %></h3>
+      <p><%= link_to restaurant.category.capitalize, restaurant_category_path %></p>
+      <p><%= restaurant.address %></p>
+    </div>
+  <% end %>
+</div>

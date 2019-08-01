@@ -1,0 +1,13 @@
+<div class="col-lg-6 mx-auto">
+  <h1 class="text-center">Restaurants</h1>
+  <%= link_to "+ Add new restaurant", new_restaurant_path %>
+
+  <!-- Cards -->
+  <% @restaurants.each do |restaurant| %>
+    <div class="card my-4 p-3 mx-auto">
+      <h3><%= link_to restaurant.name, restaurant %></h3>
+      <p><strong>Category: </strong><%= link_to restaurant.category.capitalize, restaurant_category_path(restaurant.category) %></p>
+      <p><%= restaurant.address %></p>
+    </div>
+  <% end %>
+</div>

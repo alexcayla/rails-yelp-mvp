@@ -1,0 +1,22 @@
+<div class="col-lg-6 mx-auto my-4">
+
+  <%= simple_form_for(@restaurant) do |f| %>
+    <% if @restaurant.errors.any? %>
+      <div class="errors-container">
+        <ul>
+          <% @restaurant.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.input :name %>
+    <%= f.input :address %>
+
+    <%= f.input :category, collection: Restaurant::CATEGORIES  %>
+
+    <%= f.submit "Add a restaurant", class: "btn btn-primary" %>
+  <% end %>
+
+</div>

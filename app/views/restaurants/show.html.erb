@@ -1,0 +1,27 @@
+<div class="col-lg-6 mx-auto">
+  <p><%= link_to "Back to all restaurants", restaurants_path %></p>
+  <h1 class="mb-4"><%= @restaurant.name %></h1>
+  <div class="card p-4 mb-4">
+    <h4>Address</h4>
+    <p><%= @restaurant.address %></p>
+    <p><strong>Category: </strong>
+      <%= @restaurant.category.capitalize %></p>
+  </div>
+
+
+  <h2 class="mb-4">Reviews</h2>
+  <% @reviews.each do |review| %>
+    <div class="py-4 mb-4">
+      <em><%= review.content %></em>  -
+      <% review.rating.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= render 'new_review_form' %>
+
+</div>
+
+
+
